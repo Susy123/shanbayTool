@@ -1,0 +1,259 @@
+$font-family : "Helvetica Neue", Helvetica, Arial, sans-serif;
+$background-color : rgba(255, 255, 221, 1);
+$border-color : rgba(153, 153, 153, 1);
+$text-color : rgba(34, 34, 34, 1);
+$font-size : 14px;
+$gap: 10px;
+
+@mixin box-shadow($horizontal, $vertical, $radius, $color) {
+    box-shadow: $horizontal $vertical $radius $color;
+    -webkit-box-shadow: $horizontal $vertical $radius $color;
+}
+
+@mixin animation($animate) {
+    -webkit-animation: #{$animate};
+    -moz-animation: #{$animate};
+    -o-animation: #{$animate};
+    animation: #{$animate};
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(fade-in) {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@include keyframes(fade-out) {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.ChaZD-result-side {
+    position: fixed !important; 
+    right: 10px;
+    top: 80px;
+}
+/* 翻译弹窗 */
+.ChaZD-result-container {
+    width: 250px;
+    overflow: auto;
+    text-shadow: none;
+    background-color: $background-color;
+    text-align: left;
+    color:  $text-color;
+    padding: 10px;
+    margin: 0px; 
+    opacity: 1;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    z-index: 999997;
+    font-family: $font-family;
+    font-weight: normal;
+    font-size: $font-size;
+    position: absolute;
+    text-decoration: none;
+    line-height: normal;
+    @include box-shadow(0px, 0px, 20px,rgba(0, 0, 0, 0.5));
+    @include animation("fade-in 0.3s ease");
+    
+    #ChaZD-searching {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .title-container {
+        background-color: $background-color;
+        border: none;
+        color: $text-color;
+        display: block;
+        max-width: 100%;
+
+        .title-word {
+            position: relative;
+            max-width: 100%;
+            text-align: left;
+            font-size: $font-size + 4px;
+
+            .voice-container {
+                background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4y2P4//8/AyUYQhAH3gNxA7IAIQPmo/H3g/QA8XkgFiBkwHyoYnRQABVfj88AmGZcTuuHyjlgMwBZM7IE3NlQGhQe65EN+I8Dw8MLGgYoFpFqADK/YUAMwOsFigORatFIlYRElaRMWmaiBAMAp0n+3U0kqkAAAAAASUVORK5CYII=");
+                background-position: bottom center;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                opacity: 0.5;
+                width: 16px;
+                height: 16px;
+                margin-left: 8px;
+                display: inline-block;
+                position: relative;
+                top: 2px;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .title-translation {
+            display: none;
+            color: $text-color;
+            margin-top: $gap;
+        }
+    }
+
+    .basic-container {
+        background-color: $background-color;
+        border: none;
+        //margin-top: $gap;
+
+        .phonetic-container {
+
+            //display: none;
+            .uk-phonetic-container, .us-phonetic-container {
+                display: inline-block;
+                color: red;
+                margin-right: 5px;
+            }
+
+            .uk-phonetic-container:before {
+                content: 'Eng';
+                color: $text-color;
+                font-size: $font-size - 2px;
+                margin-right: 2px;
+            }
+
+            .us-phonetic-container:before {
+                content: 'America';
+                color: $text-color;
+                font-size: $font-size - 2px;
+                margin-right: 2px;
+            }
+
+        }
+
+        .explains-container {
+            font-size: $font-size;
+            margin-top: $gap;
+
+            /*Result Block -- basic container -- explains container*/
+            .explains-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                .explains-item {
+                    &:before {
+                        display: none;
+                    }
+                    padding: 0px;
+                    font-family: $font-family;
+                    margin: 0 0 $gap / 2 0;
+                    list-style: none;
+                    font-size: $font-size;
+                    background-color: transparent;
+
+                    .property-container {
+                        display: block;
+                        float: left;
+                        font-weight: bold;
+                        color: $text-color;
+                        margin-right: 5px;
+                    }
+
+                    .explains-item-value {
+                        display: block;
+                        overflow: hidden;
+                    }
+                }
+            }
+
+            .voice-container {
+                display: none;
+            }
+        }
+    }
+    
+    .web-explains-container {
+
+        .web-title {
+            font-weight: bold;
+            opacity: 0.7;
+        }
+
+        .web-explains-list {
+            list-style: none;
+            margin: 5px 0;
+            padding: 0;
+            li {
+                .web-value {
+                    margin: 0 0 0 5px;
+                }
+            }
+        }
+    }
+
+    .unshow {
+        display: none;
+    }
+}
+
+.ChaZD-arrow-main {
+    position: absolute;
+    z-index: 999997;
+    @include animation("fade-in 0.3s ease");
+}
+
+.ChaZD-arrow-outer-up, .ChaZD-arrow-outer-down {
+    background: transparent;
+    width: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    position: absolute;
+    left: 0;
+}
+
+.ChaZD-arrow-outer-up {
+    border-bottom: 12px solid $border-color;
+}
+
+.ChaZD-arrow-outer-down {
+    border-top: 12px solid $border-color;
+}
+
+.ChaZD-arrow-inner-up, .ChaZD-arrow-inner-down {
+    background: transparent;
+    width: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    left: 2px;
+    // z-index: 999999;
+}
+
+.ChaZD-arrow-inner-up {
+    border-bottom: 10px solid $background-color;
+    top: 2px;
+}
+
+.ChaZD-arrow-inner-down {
+    border-top: 10px solid $background-color;
+}
+
+a.ChaZD-link {
+    text-decoration: none !important;
+    cursor: text !important;
+}

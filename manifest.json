@@ -1,0 +1,38 @@
+{
+	"name": "shanbayTool",
+	"version": "2.0",
+	"manifest_version": 2,
+	"description": "shanbayTool",
+	"permissions": [
+    	"http://*/",
+    	"http://*/*",
+    	"https://*/",
+    	"https://*/*",
+	    "contextMenus",
+	    "tabs",
+	    "storage",
+	    "notifications"
+  	],
+	"icons": {
+		"16": "icon-16.png",
+		"128": "icon-128.png"
+	},
+	"browser_action": {
+		"default_icon": "icon-16.png",
+		"default_popup": "popup.html"
+	},
+	"background": {
+      "persistent": true,
+      "scripts": [ "js/utility.js", "js/background.js" ]
+   },
+	"content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/jquery-1.10.1.min.js", "js/shanbayTool.js", "js/utility.js", "js/selection.js"],
+      "css": ["css/toolStyle.css","css/inPage.css"],
+      "run_at":"document_end",
+      "match_about_blank":true,
+	  "all_frames": true
+    }
+  ]
+}

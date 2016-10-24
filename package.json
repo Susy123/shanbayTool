@@ -1,0 +1,16 @@
+{
+  "name": "shanbayTool",
+  "version": "1.0.0",
+  "description": "a shanbayTool for Chrome",
+  "main": null,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "susy",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  },
+  "dependencies": {}
+}

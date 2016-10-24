@@ -1,0 +1,63 @@
+
+#page-button{
+	margin:0 auto;
+	margin-top:10px;
+}
+#pre-page{
+	width:24%;
+	margin-left: 4%;
+}
+#next-page, #select-page{
+	width:24%;
+	margin-left: 8%;
+}
+
+@media all and (min-width: 30em){
+	#page-button{
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+}
+
+@media all and (min-width: 46.25em){
+	#page-button{max-width:46.25rem}
+}
+
+@media all and (min-width: 61.25em){
+	#page-button{max-width:61.25rem}
+	#pre-page{
+		margin-left: 0rem;
+		width:150px;
+	}
+	#next-page, #select-page {
+	    margin-left: 3rem;
+	    width:150px;
+	}
+}
+
+@media all and (min-width: 71.25em){
+	#page-button{max-width:71.25rem}
+	/* #page-button {
+	    margin-left: 45px;
+	} */
+	#pre-page{
+		margin-left: 10rem;
+		width:150px;
+	}
+	#next-page, #select-page {
+	    margin-left: 3rem;
+	    width:150px;
+	}
+}
+
+@media all and (min-width: 81.25em){
+	#page-button{max-width:81.25rem}
+	#pre-page{
+		margin-left: 15rem;
+		width:150px;
+	}
+	#next-page, #select-page {
+	    margin-left: 4rem;
+	    width:150px;
+	}
+}
